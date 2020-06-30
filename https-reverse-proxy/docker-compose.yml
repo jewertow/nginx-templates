@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  target-service:
+    image: target-service
+    expose:
+      - 80
+
+  source-service:
+    image: source-service
+    command: tail -F keep-container-alive
+
+  https-reverse-proxy:
+    image: https-reverse-proxy
+    expose:
+      - 443
+
